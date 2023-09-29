@@ -4,7 +4,7 @@ const route = useRoute()
 
 <template>
   <div
-    class="fixed inset-x-0 top-0 bg-gray-900 px-10 py-5 text-white shadow-lg shadow-teal-900"
+    class="fixed inset-x-0 top-0 z-50 bg-gray-900 px-10 py-5 text-white shadow-lg shadow-teal-900"
   >
     <div class="mx-auto flex max-w-5xl items-center justify-between">
       <h1>
