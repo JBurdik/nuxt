@@ -1,15 +1,19 @@
 <template>
   <form @submit.prevent="submit">
     <label for="title">Title:</label>
-    <input name="title" v-model="title" />
+    <UiInput name="title" v-model="title" />
 
     <label for="ingredients">ingredients:</label>
-    <input name="ingredients" v-model="ingredients" />
+    <UiInput name="ingredients" v-model="ingredients" />
 
     <label for="desc">desc:</label>
-    <input name="desc" v-model="desc" />
+    <UiInput name="desc" v-model="desc" />
 
-    <button type="submit">Submit</button>
+    <br />
+    <br />
+    <br />
+
+    <UiButton variant="outline" type="submit">Submit</UiButton>
   </form>
 </template>
 

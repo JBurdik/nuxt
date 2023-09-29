@@ -56,15 +56,24 @@
             <IconTrash2 />
           </button>
         </div>
-        <div @click="() => (isOpen = !isOpen)">open</div>
+        <UiDialog>
+          <UiDialogTrigger>
+            <div
+              class="relative flex w-fit cursor-pointer flex-col items-center justify-center gap-3 place-self-center self-center rounded-lg border border-gray-500 px-10 py-8 shadow-lg shadow-gray-800 transition-all hover:scale-105"
+            >
+              <IconPlus />
+              <span>Přidat recept</span>
+            </div>
+          </UiDialogTrigger>
+          <UiDialogContent>
+            <UiDialogHeader>
+              <UiDialogTitle>Přidat recept</UiDialogTitle>
+            </UiDialogHeader>
+            <NewRecipe :refetch="fetchRecipes" />
+          </UiDialogContent>
+        </UiDialog>
       </div>
     </Section>
-    <Dialog
-      title="Hello"
-      :open="isOpen"
-      :onClose="() => (isOpen = !isOpen)"
-      :refetch="fetchRecipes"
-    />
   </div>
 </template>
 
