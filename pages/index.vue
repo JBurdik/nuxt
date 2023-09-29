@@ -56,7 +56,7 @@
             <IconTrash2 />
           </button>
         </div>
-        <UiDialog>
+        <UiDialog v-model:open="addDialogOpen">
           <UiDialogTrigger>
             <div
               class="relative flex w-fit cursor-pointer flex-col items-center justify-center gap-3 place-self-center self-center rounded-lg border border-gray-500 px-10 py-8 shadow-lg shadow-gray-800 transition-all hover:scale-105"
@@ -82,7 +82,8 @@ import services from '~/data/services'
 import { Recipe } from '@prisma/client'
 import { onBeforeMount } from 'vue'
 
-const isOpen = useState('isOpen', () => false)
+const addDialogOpen = useState('addDialogOpen', () => false)
+
 const recipes = useState<Recipe[]>('recipes', () => [])
 const deleteRecipe = async (id: number) => {
   const result = await apiCall('/api/recipes', 'DELETE', { id })

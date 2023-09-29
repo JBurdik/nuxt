@@ -1,19 +1,21 @@
 <template>
-  <form @submit.prevent="submit">
-    <label for="title">Title:</label>
-    <UiInput name="title" v-model="title" />
+  <form @submit.prevent="submit" class="flex flex-col gap-4">
+    <div>
+      <UiLabel class="mb-2" for="title">Title:</UiLabel>
+      <UiInput name="title" v-model="title" />
+    </div>
 
-    <label for="ingredients">ingredients:</label>
-    <UiInput name="ingredients" v-model="ingredients" />
+    <div>
+      <UiLabel class="mb-2" for="ingredients">ingredients:</UiLabel>
+      <UiInput name="ingredients" v-model="ingredients" />
+    </div>
 
-    <label for="desc">desc:</label>
-    <UiInput name="desc" v-model="desc" />
+    <div>
+      <UiLabel class="mb-2" for="desc">desc:</UiLabel>
+      <UiInput name="desc" v-model="desc" />
+    </div>
 
-    <br />
-    <br />
-    <br />
-
-    <UiButton variant="outline" type="submit">Submit</UiButton>
+    <UiButton class="mt-5" type="submit">Přidat</UiButton>
   </form>
 </template>
 
@@ -33,7 +35,7 @@ export default defineComponent({
     const title = ref('')
     const ingredients = ref('')
     const desc = ref('')
-    const isOpen = useState('isOpen')
+    const addDialogOpen = useState<boolean>('addDialogOpen')
 
     const submit = async () => {
       const newRecipe = {
@@ -46,6 +48,7 @@ export default defineComponent({
 
       // refetch the recipes
       await props.refetch()
+      addDialogOpen.value = false
 
       // clear the form fields
       title.value = ''
